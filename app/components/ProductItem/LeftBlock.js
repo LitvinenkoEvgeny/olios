@@ -3,14 +3,35 @@ import React, {Component} from 'react';
 export default class LeftBlock extends Component {
   constructor() {
     super(...arguments);
-    this.canResize = this.canResize.bind(this);
+    this.increaseImage = this.increaseImage.bind(this);
+    this.decreaseImage = this.decreaseImage.bind(this);
   }
 
-  canResize() {
+  increaseImage() {
     let leftParentBlock = document.querySelector('.ProductItem__left-block');
     let productImg = document.querySelector('.ProductItem__left-block > img');
-    console.dir(productImg);
-    console.dir(leftParentBlock);
+    let oldProductImgHeight = parseInt(getComputedStyle(productImg).height);
+    let nowMinWidth = parseInt(getComputedStyle(productImg).minWidth);
+    if (nowMinWidth + 10 <= 100) {
+      let nextMinWidth = nowMinWidth + 10;
+      productImg.style.minWidth = `${nextMinWidth}%`;
+      let newProductImgHeight = parseInt(getComputedStyle(productImg).height);
+      productImg.style.marginTop = parseInt(getComputedStyle(productImg).marginTop) - ((newProductImgHeight - oldProductImgHeight) / 2) + "px";
+    }
+  }
+
+  decreaseImage() {
+    let leftParentBlock = document.querySelector('.ProductItem__left-block');
+    let productImg = document.querySelector('.ProductItem__left-block > img');
+    let oldProductImgHeight = parseInt(getComputedStyle(productImg).height);
+    let nowMinWidth = parseInt(getComputedStyle(productImg).minWidth);
+
+    if (nowMinWidth - 10 >= 30) {
+      let nextMinWidth = nowMinWidth - 10;
+      productImg.style.minWidth = `${nextMinWidth}%`;
+      let newProductImgHeight = parseInt(getComputedStyle(productImg).height);
+      productImg.style.marginTop = parseInt(getComputedStyle(productImg).marginTop) + ((oldProductImgHeight - newProductImgHeight) / 2) + "px";
+    }
   }
 
   render() {
@@ -26,8 +47,8 @@ export default class LeftBlock extends Component {
 
         <div className="bottom-btns">
           <div className="img-size">
-            <div className="plus" onClick={this.canResize}><span>+</span></div>
-            <div className="minus"><span>-</span></div>
+            <div className="plus" onClick={this.increaseImage}><span>+</span></div>
+            <div className="minus" onClick={this.decreaseImage}><span>-</span></div>
           </div>
           <div className="location"></div>
         </div>
