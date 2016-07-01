@@ -1,0 +1,120 @@
+@import "~susy"
+@import "_mixins.scss"
+@import "_variables.scss"
+
+.ProductPage
+  &--products-list
+    +layout(4 .1 split)
+    display: inline-block
+    width: 100 - toPercents(144, 2300)
+    margin-left: toPercents(144, 2300)
+    background-color: #f0f0f0
+    height: 100vh
+    .product-inner
+      +container(66.25019%)
+      margin: 0 auto
+      +clearfix()
+      &__header
+        +clearfix()
+        margin-top: 10px
+        h3
+          font-size: 62px
+          float: left
+          display: inline-block
+          color: #000000
+          font-family: $fontLatoLight
+          margin: 0
+        .info
+          float: right
+          display: inline-block
+          font-family: $fontLatoRegular
+          font-size: 18px
+          color: #c1c1c1
+          margin-top: 10px
+          h5
+            text-transform: uppercase
+            display: inline-block
+            margin-right: 30px
+          i
+            width: 60px
+            height: 60px
+            background-image: url("../images/right-mnu-sprites.png")
+            background-position: 0 10px
+            float: right
+            margin-right: 25px
+            background-repeat: no-repeat
+
+      .product__list
+        +clearfix()
+        margin-top: 20px
+
+
+      @keyframes showItem
+        from
+          opacity: 0
+          margin-left: -2%
+        to
+          opacity: 1
+      .product
+        &__item
+          cursor: pointer
+          background-color: #ffffff
+          margin-bottom: 10px
+          font-family: $fontLatoLight
+          height: 335px
+          padding: 0 20px
+          box-sizing: border-box
+          opacity: 0
+          &--show
+            animation: showItem .8s both ease-in-out
+
+          p
+            margin: 0
+
+          .product__name
+            color: #000000
+            text-transform: uppercase
+            font-size: 30px
+
+          .product__descr
+            font-size: 15px
+            color: #a8a8a8
+
+          .product__price
+            font-family: $fontLatoBlack
+            color: #0023ff
+            font-size: 15px
+            margin-top: 10px
+
+        &__little
+          +span(1 of 4)
+          img
+            margin: 0 auto
+            display: block
+
+        &__middle
+          +span(2 of 4)
+            padding: 0 20px
+            box-sizing: border-box
+          img
+            width: 50%
+          img, .product__info
+            margin-top: 100px
+
+        &__big
+          padding: 50px 20px 0 20px
+          box-sizing: border-box
+          +span(3 of 4)
+          .product__info
+            margin-top: 60px
+          .product__price
+            margin-top: 50px
+
+
+      .product__middle, .product__big
+        img
+          float: left
+        .product__info
+          float: right
+
+

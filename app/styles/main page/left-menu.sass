@@ -1,0 +1,42 @@
+@import "../_mixins.scss"
+@import "../_variables.scss"
+
+.left-menu
+  background-color: #ffffff
+  width: toPercents(144, 2300)
+  height: 100vh
+  box-shadow: 0 0 25px 0 rgba(219, 219, 219, 0.5)
+  float: left
+  position: absolute
+
+  i
+    background-image: url("../../images/main-sprites.png")
+    display: inline-block
+    height: 42px
+    cursor: pointer
+
+  &__logo
+    text-align: center
+    margin-bottom: 150px
+    i
+      width: 45px
+      margin-top: 33px
+
+  &__item
+    text-align: center
+    margin-top: 84px
+    i
+      width: 36px
+    &--home
+      i
+        background-position: -97px 0
+
+    &--basket
+      i
+        background-position: -205px 0
+
+    &--search
+      i
+        background-position: -304px 0
+
+

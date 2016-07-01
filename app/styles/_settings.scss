@@ -1,0 +1,7 @@
+@include layout(12 .25 inside);
+
+.container {
+  @include container(100%);
+}
+
+
