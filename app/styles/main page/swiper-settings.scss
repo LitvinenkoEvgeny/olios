@@ -1,0 +1,62 @@
+@import "~swiper/dist/css/swiper.min.css";
+
+.swiper-container {
+  z-index: 0 !important;
+  height: 100vh;
+}
+
+.swiper-slide {
+  text-align: center;
+  font-size: 18px;
+  background: #fff;
+
+  /* Center slide text vertically */
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  -webkit-align-items: center;
+  align-items: center;
+}
+
+#swiperPagination {
+  width: 200px;
+  bottom: 20%;
+  left: 80%;
+}
+
+.swiper-pagination-bullet {
+  width: 13px;
+  height: 13px;
+  border: 4px solid darken(#d9d9da, 50%);
+  background-color: transparent;
+  box-sizing: border-box;
+}
+.swiper-pagination-bullet-active{
+  background-color: #0023ff;
+  border: 4px solid #0023ff;
+}
+
+@mixin backgroundSlider() {
+  background: url("../../images/main-bg.jpg") no-repeat top right;
+  background-size: 100% 150%;
+  background-position-y: 100%;
+}
+
+.slide1 {
+  @include backgroundSlider();
+}
+
+.slide2 {
+  @include backgroundSlider();
+}
+
+.slide3 {
+  @include backgroundSlider();
+}

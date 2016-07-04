@@ -1,5 +1,7 @@
+import * as types from '../constants';
 const initialState = {
   showProduct: true,
+  nowShowing: null,
   'living-room': [
     {
       name: 'red seat',
@@ -52,7 +54,22 @@ const initialState = {
 
 export default function products(state = initialState, action) {
   switch (action.type) {
+    case types.ADD_LIKE:
+      let category = state[action.category].slice();
+      category.map(i => {
+        if (i.name === action.itemName) {
+          i.likes++;
+        }
+      });
+      state[category] = category;
+      return Object.assign({}, state);
+    case types.GET_PRODUCT:
+      let showing = state[action.payload.category].filter(item => {
+        return item.link === action.payload.productName;
+      });
+      if (showing[0]) showing = showing[0];
+      return Object.assign({}, state, {nowShowing: showing});
     default:
       return state;
   }
-};
+}

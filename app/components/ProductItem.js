@@ -13,10 +13,12 @@ export default class ProductItem extends Component {
 
   render() {
     const {item} = this.props;
+    const {addLike} = this.props;
     return (
       <div className="ProductItem">
-        <LeftBlock item={item} />
-        <RightBlock category={this.props.category} item={item} />
+        <LeftBlock item={item} addLike={addLike} category={this.props.category}/>
+        <RightBlock category={this.props.category}
+                    recommended={this.props.recommended} item={item}/>
       </div>
     );
   }

@@ -1,3 +1,4 @@
+@import "~compass-mixins/lib/compass/css3/user-interface"
 @import "_mixins.scss"
 @import "_variables.scss"
 
@@ -10,6 +11,11 @@ $paddingTop: 50px
   background-color: #f0f0f0
   height: 100vh
   margin-left: toPercents(144, 2300)
+  @keyframes leftBlockSlideToRight
+    from
+      left: -560px
+    to
+      left: 0
   &__left-block
     display: inline-block
     position: relative
@@ -18,8 +24,11 @@ $paddingTop: 50px
     width: 37.1%
     padding-top: $paddingTop
     float: left
+    animation: leftBlockSlideToRight .9s .5s ease-in-out both
+    z-index: 1
     .lks
       +clearfix()
+      +disableSelect()
       display: table
       float: right
       margin-right: 30px
@@ -41,22 +50,200 @@ $paddingTop: 50px
       &:active
         transform: scale(1.3)
     img
-      margin-top: toPercents(278.2, 841);
+      +disableSelect()
+      margin-top: toPercents(278.2, 841)
       margin-left: auto
       margin-right: auto
       width: 50%
       display: block
+      transition: width .3s ease-in-out
 
     .bottom-btns
       position: absolute
       bottom: 60px
+      left: toPercents(210, 556.422)
+      text-align: center
       div
         display: inline-block
+      .plus, .minus
+        +disableSelect()
+        vertical-align: bottom
+        border-radius: 50%
+        text-align: center
+        width: 32px
+        height: 32px
+        line-height: 28px
+        font-size: 2em
+        transition: transform .1s ease
+        &:active
+          transform: scale(1.3)
+        &.active
+          box-sizing: border-box
+          cursor: pointer
+          border: 2px solid
+          color: #2d4aff
+        &.inactive
+          cursor: not-allowed
+          color: #eeeeee
+          border-color: #eeeeee
+      .minus
+        line-height: 24px
+        margin-left: 15px
 
+  @keyframes rightBlockToRight
+    from
+      margin-top: -530px
+    to
+      margin-top: 0
   &__right-block
     height: 100vh
+    box-sizing: border-box
     display: inline-block
     background-color: #f0f0f0
     width: 46%
+    padding-right: 30px
+    padding-left: 55px
+    animation: rightBlockToRight .8s ease-out both
     float: left
-    padding-top: $paddingTop
+    padding-top: 20px
+    .head
+      h4
+        font-size: 48px
+        display: inline-block
+        vertical-align: middle
+        color: #000000
+        font-family: $fontLatoLight
+        margin: 10px 0 0 0
+        text-transform: uppercase
+      .category_wrp
+        display: inline-block
+        float: right
+        margin-top: 10px
+      .category
+        display: table
+        span
+          margin-right: 10px
+          display: table-cell
+          vertical-align: middle
+          color: #c1c1c1
+          text-transform: uppercase
+
+        i.living-room
+          width: 60px
+          height: 60px
+          margin-left: 20px
+          display: inline-block
+          background: url("../images/right-mnu-sprites.png") 0 0
+    .body
+      margin-top: 17%
+      .full-name
+        font-family: $fontLatoLight
+        margin: 0
+        font-size: 42px
+        text-transform: uppercase
+        .first-part
+          color: $mainBlueColor
+      .descr
+        color: $lightGreyColor
+        font-family: $fontLatoLight
+        font-size: 24px
+        line-height: 30px
+
+      .actions
+        font-size: 0
+
+      .price, .quantity, .buy-btn
+        display: inline-block
+        font-size: 16px
+        vertical-align: top
+
+      .price, .quantity
+        margin-right: 15%
+        p:first-of-type
+          font-family: $fontLatoLight
+          font-size: 18px
+          color: #999999
+          text-transform: uppercase
+
+      .price
+        .actual
+          font-size: 38px
+          color: $mainBlueColor
+          font-family: $fontLatoBlack
+          margin-right: 15px
+        .oldPrice
+          font-size: 20px
+          position: relative
+          bottom: 6px
+          font-family: $fontLatoBlack
+          color: #000000
+          text-decoration: line-through
+
+      .quantity
+        input
+          width: 90px
+          box-sizing: border-box
+          outline: none
+          border: none
+          border-radius: 10px
+          padding: 10px
+          font-family: $fontLatoBlack
+          font-size: 25px
+          color: #000000
+
+      .buy-btn
+        vertical-align: bottom
+        margin-bottom: 20px
+        input
+          border: none
+          background-color: #0023ff
+          color: #ffffff
+          line-height: 30px
+          padding: 0 20px
+          border-radius: 20px
+          cursor: pointer
+          display: inline-block
+          font-family: $fontLatoBlack
+          font-size: 18px
+
+    @keyframes recommendedSlideUp
+      from
+        bottom: -240px
+      to
+        bottom: 0
+    .recommended
+      position: absolute
+      animation: recommendedSlideUp 1s .4s ease-in-out both
+      background-color: #ffffff
+      width: 100%
+      height: 240px
+      box-shadow: 0 0 25px 0 rgba(219, 219, 219, 0.5)
+      z-index: 0
+      left: 41%
+      padding-left: 50px
+      &.empty
+        display: flex
+        font-size: 15px
+        color: $lightGreyColor
+        font-family: $fontLatoLight
+        h1
+          transform: rotate(-.25turn)
+          transform-origin: left
+          align-self: flex-end
+          margin: 0 auto
+          flex-grow: 1
+
+      > div
+        display: flex
+
+      .recommended-item
+        display: inline-block
+        text-align: center
+        p
+          margin: 0
+
+        img
+          width: 100%
+
+
+
