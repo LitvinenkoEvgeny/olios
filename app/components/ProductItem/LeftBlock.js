@@ -4,9 +4,6 @@ import cx from 'classnames';
 // import ItemImgSlider from './ItemImageSlider';
 
 
-// import {centralizeByHeight} from '../../helpers';
-
-
 export default class LeftBlock extends Component {
   constructor() {
     super(...arguments);
@@ -18,20 +15,23 @@ export default class LeftBlock extends Component {
       }
     };
   }
+  
+  componentWillReceiveProps(nextProps) {
+    if(this.props.item.name !== nextProps.item.name){
+      this.setState({
+        canInc: true,
+        canDec: true,
+        imgStyles: {
+          width: '50%'
+        }
+      });
+    }
+  }
+  
 
   toPercents(parent, elem, property) {
     return parseInt(getComputedStyle(elem)[property]) / parseInt(getComputedStyle(parent)[property]) * 100;
   }
-
-  // componentDidMount() {
-  //   let imageTimeout = setTimeout(() => {
-  //     if (this.refs.productImg.clientHeight) {
-  //
-  //       centralizeByHeight(this.refs.parentBlock, this.refs.productImg, 'margin-top');
-  //       clearInterval(imageTimeout);
-  //     }
-  //   }, 50);
-  // }
 
   increaseSize() {
     let size = parseInt(this.state.imgStyles.width);
