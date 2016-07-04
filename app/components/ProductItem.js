@@ -8,7 +8,11 @@ import RightBlock from '../components/ProductItem/RightBlock';
 export default class ProductItem extends Component {
   constructor() {
     super(...arguments);
+    this.state = {
+      showMore: false
+    }
   }
+
 
 
   render() {

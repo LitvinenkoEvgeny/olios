@@ -11,6 +11,7 @@ const initialState = {
       descr: 'Lorem ipsum dolor sit amet',
       price: 45,
       img: 'red-seat.jpg',
+      images: ['seat1.png', 'seat2.png', 'seat3.png', 'seat4.png'],
       fullDescr: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut fermentum interdum malesuada. Sed ornare posuere lobortis. '
     },
     {
@@ -20,6 +21,7 @@ const initialState = {
       descr: 'Lorem ipsum dolor sit amet',
       price: 350,
       img: 'white-table.jpg',
+      images: ['seat1.png', 'seat2.png', 'seat3.png', 'seat4.png'],
       fullDescr: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut fermentum interdum malesuada. Sed ornare posuere lobortis. '
     },
     {
@@ -29,6 +31,7 @@ const initialState = {
       descr: 'Lorem ipsum dolor sit amet',
       price: 35,
       img: 'blue-seat.jpg',
+      images: ['seat1.png', 'seat2.png', 'seat3.png', 'seat4.png'],
       fullDescr: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut fermentum interdum malesuada. Sed ornare posuere lobortis. '
     },
     {
@@ -38,6 +41,7 @@ const initialState = {
       descr: 'Lorem ipsum dolor sit amet',
       price: 120,
       img: 'modern-bed.jpg',
+      images: ['seat1.png', 'seat2.png', 'seat3.png', 'seat4.png'],
       fullDescr: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut fermentum interdum malesuada. Sed ornare posuere lobortis. '
     },
     {
@@ -47,6 +51,7 @@ const initialState = {
       descr: 'Lorem ipsum dolor sit amet',
       price: 50,
       img: 'dark-seat.jpg',
+      images: ['seat1.png', 'seat2.png', 'seat3.png', 'seat4.png'],
       fullDescr: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut fermentum interdum malesuada. Sed ornare posuere lobortis. '
     }
   ]
