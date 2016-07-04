@@ -13,11 +13,12 @@ export default class RecommendedItems extends Component {
     const {category} = this.props.category;
     return (
       <div>
+        <h1>Recommended</h1>
         {items.map((item, index) => (
           <Link to={`/product/${this.props.category}/${item.link}/`}
                 className="recommended-item" key={index}>
-            <p>{item.name}</p>
             <img src={require(`../../images/${item.img}`)} alt={item.name}/>
+            <p>{item.name}</p>
             <p>{item.descr}</p>
           </Link>
         ))}

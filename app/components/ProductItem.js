@@ -10,7 +10,7 @@ export default class ProductItem extends Component {
     super(...arguments);
     this.state = {
       showMore: false
-    }
+    };
   }
 
 

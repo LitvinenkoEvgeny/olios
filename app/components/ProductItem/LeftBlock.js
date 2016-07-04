@@ -6,12 +6,16 @@ import cx from 'classnames';
 
 // import {centralizeByHeight} from '../../helpers';
 
+
 export default class LeftBlock extends Component {
   constructor() {
     super(...arguments);
     this.state = {
       canInc: true,
-      canDec: true
+      canDec: true,
+      imgStyles: {
+        width: '50%'
+      }
     };
   }
 
@@ -28,6 +32,35 @@ export default class LeftBlock extends Component {
   //     }
   //   }, 50);
   // }
+
+  increaseSize() {
+    let size = parseInt(this.state.imgStyles.width);
+    if (size + 10 != 100) {
+      this.setState({
+        imgStyles: {width: `${size + 10}%`}
+      });
+    } else {
+      this.setState({
+        canInc: false,
+        canDec: true
+      });
+    }
+  }
+
+  decreaseSize() {
+    let size = parseInt(this.state.imgStyles.width);
+    if (size - 10 != 10) {
+      this.setState({
+          imgStyles: {width: `${size - 10}%`}
+        }
+      );
+    } else {
+      this.setState({
+        canInc: true,
+        canDec: false
+      });
+    }
+  }
 
 
   render() {
@@ -52,12 +85,12 @@ export default class LeftBlock extends Component {
           <i className="likes-icon" onClick={() => {this.props.addLike(category, item.name);}}></i>
         </div>
 
-        <img src={require(`../../images/${item.img}`)} alt={item.name}/>
+        <img style={this.state.imgStyles} src={require(`../../images/${item.img}`)} alt={item.name}/>
 
         <div className="bottom-btns">
           <div className="img-size">
-            <div className={plusClassname}><span>+</span></div>
-            <div className={minusClassname}><span>-</span></div>
+            <div onClick={() => {this.increaseSize();}} className={plusClassname}><span>+</span></div>
+            <div onClick={() => {this.decreaseSize();}} className={minusClassname}><span>-</span></div>
           </div>
           <div className="location"></div>
         </div>
