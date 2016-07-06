@@ -14,7 +14,9 @@ const LeftMenu = () => {
 
         <div className="left-menu__item left-menu__item--home"><i></i></div>
         <div className="left-menu__item left-menu__item--basket"><i></i></div>
-        <div className="left-menu__item left-menu__item--search"><i></i></div>
+        <Link to="search">
+          <div className="left-menu__item left-menu__item--search"><i></i></div>
+        </Link>
       </div>
     </nav>
   );

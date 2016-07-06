@@ -8,6 +8,7 @@ import App from './containers/AppContainer';
 import MainPage from './components/MainPage';
 import ProductPage from './containers/ProductPageContainer';
 import SingleProductPage from './containers/SingleProductPage';
+import SearchPage from './containers/SearchContainer';
 
 import configureStore from './store/';
 import './styles/index.scss';
@@ -21,6 +22,7 @@ render((
         <IndexRoute component={MainPage} />
         <Route path="products/:category" component={ProductPage} />
         <Route path="product/:category/:name" component={SingleProductPage} />
+        <Route path="search" component={SearchPage} />
       </Route>
     </Router>
   </Provider>

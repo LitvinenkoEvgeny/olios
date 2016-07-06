@@ -1,0 +1,51 @@
+@import "_mixins.scss"
+@import "_variables.scss"
+
+.SearchContainer
+  height: 100%
+  width: 100%
+  position: absolute
+  top: 0
+  left: 0
+  background-color: rgba(255, 255, 255, .9)
+
+.search
+  width: toPercents(1572, 2300)
+  margin: 0 auto
+
+  &__input
+    input
+      width: 100%
+      border: none
+      border-bottom: 2px solid #e4e4e4
+      padding: 10px 15px 30px 0
+      font-family: $fontLatoThin
+      font-size: 80px
+      color: #000000
+      outline: none
+      background-color: transparent
+      text-transform: uppercase
+
+    label
+      display: block
+      margin-top: 30px
+      font-family: $fontLatoLight
+      font-size: 22px
+      color: $lightGreyColor
+
+  &__result
+    font-size: 0
+    display: flex
+    flex-flow: row wrap
+  &__item
+    width: 33.33333%
+    text-align: center
+    img
+      height: 100%
+      display: inline-block
+    h1
+      font-size: 25px
+      display: table-cell
+      vertical-align: middle
+
+
