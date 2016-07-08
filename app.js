@@ -29108,7 +29108,7 @@
 	          _this2.handleBlur();
 	        },
 	        id: "searchInput", type: "text",
-	        value: this.state.term }), !this.state.focused && _react2.default.createElement("label", { htmlFor: "searchInput" }, "Type product that you are looking for..."), _react2.default.createElement("div", { ref: "searchResultSwiper", className: "search__result" }, _react2.default.createElement(ReactCSSTransitionGroup, { transitionName: "searchItems", transitionEnterTimeout: 500,
+	        value: this.state.term }), !this.state.term && _react2.default.createElement("label", { htmlFor: "searchInput" }, "Type product that you are looking for..."), _react2.default.createElement("div", { ref: "searchResultSwiper", className: "search__result" }, _react2.default.createElement(ReactCSSTransitionGroup, { transitionName: "searchItems", transitionEnterTimeout: 500,
 	        transitionLeaveTimeout: 300 }, items.map(function (item, index) {
 	        return _react2.default.createElement(_reactRouter.Link, { to: '/product/living-room/' + item.link + '/',
 	          className: "search__item", key: index }, _react2.default.createElement("img", { src: __webpack_require__(281)("./" + item.img), alt: item.name }), _react2.default.createElement("h1", null, item.name));
